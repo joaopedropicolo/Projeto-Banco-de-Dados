@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Agenda</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Alunos</h1>
+  <button id="searchButton" onclick="showTable()">
+    <span class="icon">🔍</span> Exibir lista
+  </button>
+  <table id="studentTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>R.A</th>
+        <th>Nome</th>
+        <th>Nascimento</th>
+        <th>Idade</th>
+        <th>CPF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% alunos.forEach(aluno => { %>
+        <tr>
+          <td><%= aluno.ra %></td>
+          <td><%= aluno.nome %></td>
+          <td><%= aluno.nascimento.toLocaleDateString() %></td>
+          <td><%= aluno.idade %> anos</td>
+          <td><%= aluno.cpf %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <script>
+    function showTable() {
+      document.getElementById('studentTable').style.display = 'table';
+    }
+  </script>
+</body>
+</html>
